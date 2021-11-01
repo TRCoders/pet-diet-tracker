@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+    <title>Profile Page</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+      <script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="profile.css">
+  </head>
+<body class="profile-page">
+  <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg "  color-on-scroll="100"  id="sectionsNav">
+      <div class="container">
+          <div class="navbar-translate">
+              <a class="navbar-brand" href="#" target="_blank">Pet Diet Planner</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+          </div>
+      
+          <div class="collapse navbar-collapse">
+              <ul class="navbar-nav ml-auto">
+                  <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+                        <i class="material-icons">apps</i> Account
+                    </a>
+                    <div class="dropdown-menu dropdown-with-icons">
+                      <a href="/settings" class="dropdown-item">
+                          <i class="material-icons">layers</i> SETTINGS
+                      </a>
+                      
+                      <a href="/unlink/local" class="dropdown-item">
+                          <i class="material-icons">content_paste</i> DELETE ACCOUNT
+                      </a>
+                    </div>
+                  </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">
+                <i class="material-icons">logout</i> Logout
+              </a>
+            </li>
+            </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  
+  <div class="page-header header-filter" data-parallax="true" style="background-image:url('https://images.unsplash.com/photo-1560743641-3914f2c45636?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGRvZyUyMHdhbGtpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+  <div class="main main-raised">
+  <div class="profile-content">
+          <div class="container">
+              <div class="row">
+                <div class="col-md-6 ml-auto mr-auto">
+                   <div class="profile">
+                        <div class="avatar">
+                            <img src="img/defaultuser.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                        </div>
+                        <div class="name">
+                            <h3 class="title"><%= user.local.email %>'s Pet Tracker<br></h3>
+                            <h6>Profile Page</h6>
+                        </div>
+                    </div>
+                </div>
+              </div>
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+                      <div class="profile-tabs">
+                        <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                          <li class="nav-item">
+                              <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                                <i class="material-icons">note</i>
+                                Daily Planner
+                              </a>
+                          </li>
+
+          </div>
+          </div>
+      
+        <div class="tab-content tab-space">
+          <div class="tab-pane active text-center gallery" id="studio">
+        <div class="col">
+          <h3>Daily Planner</h3>
+            <% if (user.local.email) { %>
+              <form action="/profile" method="POST">
+                <span class="d-flex flex-column">Pet Name</span>
+                <input type="text" name="name"><br>
+                <span class="d-flex flex-column">Today Goal</span>
+                <input type="text" placeholder="message" name="msg"><br>
+                <button type="submit">Submit</button>
+              </form>
+              <% } %>
+            <ul class="messages list-group">
+            <% for(let i=0; i<messages.length; i++) {%>
+              <li class="message">
+                <span class="list-group-item"><span class="d-flex align-items-start">Pet Name: <%= messages[i].name %></span></span>
+                <span class="list-group-item"><span class="d-flex align-items-start">Today's Goal: <%= messages[i].msg %> </span>
+              </li>
+            <% } %>
+
+            <span><i class="fa fa-trash d-flex flex-row-reverse" aria-hidden="true"></i></span></span>
+            </ul>
+        </div>
+      </div>
+
+      
+          </div>
+      </div>
+</div>
+
+<footer class="footer text-center ">
+      <p>Made with <a href="https://demos.creative-tim.com/material-kit/index.html" target="_blank">Material Kit</a> by Creative Tim</p>
+  </footer>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+
+
+ 
+
+</body>
+<script src="main.js"></script>
+<script src="maincss.js"></script>
+</html>
